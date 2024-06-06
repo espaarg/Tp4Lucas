@@ -11,7 +11,7 @@ public class PruebaTest {
     public void testSumaPositivo() {
         Prueba prueba = new Prueba();
         double resultado = prueba.suma(2.5, 3.8);
-        double esperado = 6.6;
+        double esperado = 6.3;
 
         // Comprueba si el resultado es igual al valor esperado con un delta de 0.01 para tolerar redondeos
         org.junit.jupiter.api.Assertions.assertEquals(esperado, resultado, 0.01);
