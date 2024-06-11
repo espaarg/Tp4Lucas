@@ -23,8 +23,21 @@ public class Carrito {
     }
 
     public void aniadirItems(Item i) {
-        items.add(i);
-        System.out.println("Se ha añadido un item al carrito");
+        if (esItemValido(i)) {
+            items.add(i);
+            System.out.println("Se ha añadido un item al carrito");
+        } else  {System.out.println("El item no es válido y no se ha añadido al carrito");}
+        }
+
+    private boolean esItemValido(Item i) {
+        if (
+            i.getNombre() != null &&
+            i.getDescripcion() != null &&
+            i.getCantidad() > 0 &&
+            i.getPrecio()>0 &&
+            i.getPrecioCantidad()>0
+        ){return true;}
+        else { return false;}
     }
 
     public void eliminarItems(Item i) {
