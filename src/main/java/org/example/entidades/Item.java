@@ -10,8 +10,8 @@ public class Item {
     private float precioCantidad = 200;
 
     public Item() {
-
     }
+
     public String getNombre() {
         return nombre;
     }
@@ -62,4 +62,13 @@ public class Item {
             System.out.printf("Se ha llegado a la cantidad máxima por item");
         }
     }
+
+    public void disminuirUnoCantidad (){
+        if(cantidad>0) {
+            cantidad--;
+        } else {
+            System.out.printf("Se ha llegado a la cantidad mínima por item");
+        }
+    }
+
 }

@@ -14,6 +14,11 @@ class ItemTest {
         assertEquals(item.getCantidad(),3);
     }
     @Test
+    void disminuirUnoCantidad(){
+        item.disminuirUnoCantidad();
+        assertEquals(item.getCantidad(),1);
+    }
+    @Test
     void setNombre() {
         String newName = "Llanta";
         item.setNombre(newName);
@@ -27,28 +32,22 @@ class ItemTest {
     }
     @Test
     void setCantidad() {
+        int cantidad = 5;
+        item.setCantidad(cantidad);
+        assertEquals(item.getCantidad(),5);
     }
     @Test
     void setPrecio() {
+        int precio = 500;
+        item.setPrecio(precio);
+        assertEquals(item.getPrecio(),500);
     }
     @Test
     void setPrecioCantidad() {
+        int cantidad = item.getCantidad();
+        float precioCantidad = cantidad*(item.getPrecio());
+        item.setPrecioCantidad(precioCantidad);
+        assertEquals(item.getPrecioCantidad(),200);
     }
-    @Test
-    void getCantidad() {
-    }
-    @Test
-    void getDescripcion() {
-    }
-    @Test
-    void getNombre() {
-        String name = item.getNombre();
-        assertEquals(name,"Zapatilla");
-    }
-    @Test
-    void getPrecioCantidad() {
-    }
-    @Test
-    void getPrecio() {
-    }
+
 }
