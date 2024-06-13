@@ -51,24 +51,17 @@ public class Item {
         return precioCantidad;
     }
 
-    public void setPrecioCantidad(float precioCantidad) {
+    public void setPrecioCantidad(float precio) {
+        float precioCantidad = cantidad*precio;
         this.precioCantidad = precioCantidad;
     }
 
     public void anadirUnoCantidad (){
-        if(cantidad<15){
             cantidad++;
-        } else {
-            System.out.printf("Se ha llegado a la cantidad máxima por item");
-        }
     }
 
     public void disminuirUnoCantidad (){
-        if(cantidad>0) {
             cantidad--;
-        } else {
-            System.out.printf("Se ha llegado a la cantidad mínima por item");
-        }
     }
 
 }

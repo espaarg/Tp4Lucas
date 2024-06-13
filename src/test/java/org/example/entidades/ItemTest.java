@@ -44,9 +44,7 @@ class ItemTest {
     }
     @Test
     void setPrecioCantidad() {
-        int cantidad = item.getCantidad();
-        float precioCantidad = cantidad*(item.getPrecio());
-        item.setPrecioCantidad(precioCantidad);
+        item.setPrecioCantidad(100 );
         assertEquals(item.getPrecioCantidad(),200);
     }
 
