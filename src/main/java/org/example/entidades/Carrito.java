@@ -45,6 +45,11 @@ public class Carrito {
         System.out.println("Se ha eliminado un item al carrito");
     }
 
+    public void eliminarTodosLosItems() {
+        items.clear();
+        System.out.println("Se han eliminado todos los items del carrito");
+    }
+
     public float calcularTotal(Carrito c){
       float total = 0;
         for (Item item : c.getItems()){

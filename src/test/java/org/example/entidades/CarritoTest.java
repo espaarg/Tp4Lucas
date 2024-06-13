@@ -38,6 +38,14 @@ public class CarritoTest {
 //        item.setPrecioCantidad(40);
 //        carrito.aniadirItems(item);
 //    }
+
+    @Test
+    void testEliminarTodosLosItems() {
+        carrito.eliminarTodosLosItems();
+        assertTrue(carrito.getItems().isEmpty());
+    }
+
+
     @Test
     void calcularTotalDelCarrito (){
         carrito.calcularTotal(carrito);
