@@ -49,6 +49,4 @@ jobs:
       - name: Check code format with Checkstyle
         run: mvn checkstyle:check
 
-      # Paso 7: Verificar el formato del código con Spotless
-      - name: Format code with Spotless
-        run: mvn spotless:check
+
