@@ -2,7 +2,7 @@ package org.example.entidades;
 
 import org.junit.jupiter.api.Test;
 
-public class CarritoIntegrationTest {
+public class CarritoIT {
 
     @Test
     public void integrationTestCarrito(){
