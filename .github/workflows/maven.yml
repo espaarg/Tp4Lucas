@@ -9,9 +9,9 @@ name: CI de Java con Maven y pruebas
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "develop" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "develop" ]
 jobs:
   compilar-y-probar:
     runs-on: ubuntu-latest
@@ -33,6 +33,22 @@ jobs:
           restore-keys: |
             - ${{ runner.os }}-maven-
 
-      - name: Compilar con Maven
-        run: mvn test
+      # Paso 3: Compilar el proyecto con Maven
+      - name: Build with Maven
+        run: mvn clean install --no-transfer-progress
 
+      # Paso 4: Ejecutar pruebas unitarias
+      - name: Run unit tests
+        run: mvn test
+        
+      # Paso 5: Ejecutar pruebas de integración
+      - name: Run integration tests
+        run: mvn verify -Pintegration-test
+
+      # Paso 6: Verificar el código con Checkstyle
+      - name: Check code format with Checkstyle
+        run: mvn checkstyle:check
+
+      # Paso 7: Verificar el formato del código con Spotless
+      - name: Format code with Spotless
+        run: mvn spotless:check
