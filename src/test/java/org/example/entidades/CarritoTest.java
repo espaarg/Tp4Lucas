@@ -48,7 +48,7 @@ public class CarritoTest {
 
     @Test
     void calcularTotalDelCarrito (){
-        carrito.calcularTotal(carrito);
+        carrito.calcularTotal();
     }
 
     @Test
