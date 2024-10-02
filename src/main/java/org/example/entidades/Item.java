@@ -12,10 +12,10 @@ public class Item {
     private String descripcion;
 
     /** Cantidad del item. */
-    private int cantidad;
+    private int cantidad=2;
 
     /** Precio del item. */
-    private float precio;
+    private float precio=2;
 
     /** Constante que define el límite superior de cantidad. */
     private static final int MAX_CANTIDAD = 100;
