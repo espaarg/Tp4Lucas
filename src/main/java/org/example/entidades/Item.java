@@ -12,10 +12,10 @@ public class Item {
     private String descripcion;
 
     /** Cantidad del item. */
-    private int cantidad=2;
+    private int cantidad = 2;
 
     /** Precio del item. */
-    private float precio=2;
+    private float precio = 2;
 
     /** Constante que define el límite superior de cantidad. */
     private static final int MAX_CANTIDAD = 100;
@@ -26,14 +26,13 @@ public class Item {
     /** Precio total calculado. */
     private float precioCantidad = 4;
 
-
     /**
      * Constructor para la clase Item.
      *
-     * @param nombre Nombre del item.
+     * @param nombre      Nombre del item.
      * @param descripcion Descripción del item.
-     * @param cantidad Cantidad del item.
-     * @param precio Precio del item.
+     * @param cantidad    Cantidad del item.
+     * @param precio      Precio del item.
      */
     public Item(final String nombre, final String descripcion,
                 final int cantidad, final float precio) {
@@ -44,10 +43,10 @@ public class Item {
     }
 
     /**
-     * Constructor vacio para la clase Item.
+     * Constructor vacío para la clase Item.
      */
     public Item() {
-        
+        // Constructor vacío
     }
 
     /**
@@ -99,11 +98,13 @@ public class Item {
      * Establece la cantidad del item.
      *
      * @param cantidad Cantidad del item.
-     * @throws IllegalArgumentException si la cantidad es negativa o superior a MAX_CANTIDAD.
+     * @throws IllegalArgumentException si la cantidad es negativa o superior a
+     * MAX_CANTIDAD.
      */
     public void setCantidad(final int cantidad) {
         if (cantidad < 0 || cantidad > MAX_CANTIDAD) {
-            throw new IllegalArgumentException("La cantidad debe estar entre 0 y " + MAX_CANTIDAD);
+            throw new IllegalArgumentException("La cantidad debe estar entre 0 y "
+                    + MAX_CANTIDAD);
         }
         this.cantidad = cantidad;
     }
@@ -125,7 +126,8 @@ public class Item {
      */
     public void setPrecio(final float precio) {
         if (precio < MIN_PRECIO) {
-            throw new IllegalArgumentException("El precio debe ser mayor a " + MIN_PRECIO);
+            throw new IllegalArgumentException("El precio debe ser mayor a "
+                    + MIN_PRECIO);
         }
         this.precio = precio;
     }
@@ -150,7 +152,11 @@ public class Item {
      * Disminuye la cantidad en uno.
      */
     public void disminuirUnoCantidad() {
-        cantidad--;
+        if (cantidad > 0) {
+            cantidad--;
+        } else {
+            throw new IllegalArgumentException("La cantidad no puede ser negativa.");
+        }
     }
 
     /**
@@ -159,6 +165,6 @@ public class Item {
      * @param precio El precio unitario.
      */
     public void setPrecioCantidad(final float precio) {
-        this.precioCantidad =  precio;
+        this.precioCantidad = precio;
     }
 }
