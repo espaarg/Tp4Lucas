@@ -9,7 +9,7 @@ import java.util.List;
 public class Carrito {
 
     /**
-     * Lista de Items
+     * Lista de Items.
      */
     private final List<Item> items = new ArrayList<>();
     // Lista de items en el carrito.
@@ -22,10 +22,10 @@ public class Carrito {
 
     /**
      * Constructor para Carrito con items iniciales.
-     * items Lista de items a añadir al carrito.
+     * @param newItems Lista de items a añadir al carrito.
      */
-    public Carrito(final List<Item> items) {
-        this.items.addAll(items);
+    public Carrito(final List<Item> newItems) {
+        this.items.addAll(newItems);
     }
 
     /**
@@ -39,11 +39,11 @@ public class Carrito {
 
     /**
      * Establece una nueva lista de items.
-     * items Lista de items a establecer.
+     * @param newItems Lista de items a establecer.
      */
-    public void setItems(final List<Item> items) {
+    public void setItems(final List<Item> newItems) {
         this.items.clear();
-        this.items.addAll(items);
+        this.items.addAll(newItems);
     }
 
     /**
