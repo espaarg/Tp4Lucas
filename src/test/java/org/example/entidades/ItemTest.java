@@ -44,8 +44,8 @@ class ItemTest {
     }
     @Test
     void setPrecioCantidad() {
-        item.setPrecioCantidad(100 );
-        assertEquals(item.getPrecioCantidad(),100);
+        item.setPrecioCantidad(4 );
+        assertEquals(item.getPrecioCantidad(),4);
     }
 
 }
