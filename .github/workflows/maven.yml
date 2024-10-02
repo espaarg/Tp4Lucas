@@ -46,5 +46,7 @@ jobs:
       # Paso 6: Verificar el código con Checkstyle
       - name: Check code format with Checkstyle
         run: mvn checkstyle:check
-
+      # Esto es momentaneo: 
+      - name: Check code format
+        run: npm run format 
 
