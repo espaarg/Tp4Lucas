@@ -24,7 +24,7 @@ public class Item {
     private static final float MIN_PRECIO = 10.0f;
 
     /** Precio total calculado. */
-    private float precioCantidad = 200;
+    private float precioCantidad = 4;
 
 
     /**
