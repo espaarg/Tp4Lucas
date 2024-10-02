@@ -10,6 +10,9 @@ public class RangoCantidad {
      */
     private int cant; // Cambiado a private
 
+    /**
+     * Definido como constante para la cantidad máxima permitida.
+     */
     private static final int MAX_CANTIDAD = 15; // Definido como constante
 
     /**
