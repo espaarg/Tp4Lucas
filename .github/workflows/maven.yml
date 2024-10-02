@@ -8,10 +8,8 @@
 name: CI de Java con Maven y pruebas
 
 on:
-  push:
-    branches: [ "main" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "develop" ]
 jobs:
   compilar-y-probar:
     runs-on: ubuntu-latest
@@ -33,6 +31,30 @@ jobs:
           restore-keys: |
             - ${{ runner.os }}-maven-
 
-      - name: Compilar con Maven
-        run: mvn test
+      # Paso 3: Compilar el proyecto con Maven
+      - name: Build with Maven
+        run: mvn clean install --no-transfer-progress
 
+      # Paso 4: Ejecutar pruebas unitarias
+      - name: Run unit tests
+        run: mvn test
+        
+      # Paso 5: Ejecutar pruebas de integración
+      - name: Run integration tests
+        run: mvn verify -Pintegration-test
+
+      # Paso 6: Verificar el código con Checkstyle
+      - name: Check code format with Checkstyle
+        run: mvn checkstyle:check
+      # Paso 7: Formatear el código
+      - name: Format code with Maven Formatter
+        run: mvn formatter:format
+      # Paso 8: Commit changes if any
+      #Este paso verifica si hubo cambios después del formateo y, si los hubo, los comitea automáticamente al repositorio.
+      - name: Commit changes if any
+        run: |
+          git config --global user.name 'github-actions'
+          git config --global user.email 'github-actions@github.com'
+          git add .
+          git commit -m 'Format code' || echo "No changes to commit"
+          git push
