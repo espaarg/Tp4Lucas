@@ -23,6 +23,10 @@ public class Item {
     /** Constante que define el precio mínimo. */
     private static final float MIN_PRECIO = 200.0f;
 
+    /** Precio total calculado. */
+    private float precioCantidad = 200;
+
+
     /**
      * Constructor para la clase Item.
      *
@@ -147,5 +151,14 @@ public class Item {
      */
     public void disminuirUnoCantidad() {
         cantidad--;
+    }
+
+    /**
+     * Establece el precio total basado en la cantidad y el precio unitario.
+     *
+     * @param precio El precio unitario.
+     */
+    public void setPrecioCantidad(final float precio) {
+        this.precioCantidad = cantidad * precio;
     }
 }
