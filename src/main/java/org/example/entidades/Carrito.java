@@ -8,6 +8,9 @@ import java.util.List;
  */
 public class Carrito {
 
+    /**
+     * Lista de Items
+     */
     private final List<Item> items = new ArrayList<>();
     // Lista de items en el carrito.
 
@@ -19,8 +22,7 @@ public class Carrito {
 
     /**
      * Constructor para Carrito con items iniciales.
-     *
-     * @param items Lista de items a añadir al carrito.
+     * items Lista de items a añadir al carrito.
      */
     public Carrito(final List<Item> items) {
         this.items.addAll(items);
@@ -37,8 +39,7 @@ public class Carrito {
 
     /**
      * Establece una nueva lista de items.
-     *
-     * @param items Lista de items a establecer.
+     * items Lista de items a establecer.
      */
     public void setItems(final List<Item> items) {
         this.items.clear();
@@ -55,8 +56,8 @@ public class Carrito {
             items.add(i);
             System.out.println("Se ha añadido un item al carrito");
         } else {
-            System.out.println("El item no es válido y no se ha " +
-                    "añadido al carrito");
+            System.out.println("El item no es válido y no se ha "
+                    + "añadido al carrito");
         }
     }
 
@@ -67,11 +68,11 @@ public class Carrito {
      * @return {@code true} si el item es válido, {@code false} de lo contrario.
      */
     private boolean esItemValido(final Item i) {
-        return i.getNombre() != null &&
-                i.getDescripcion() != null &&
-                i.getCantidad() > 0 &&
-                i.getPrecio() > 0 &&
-                i.getPrecioCantidad() > 0;
+        return i.getNombre() != null
+                && i.getDescripcion() != null
+                && i.getCantidad() > 0
+                && i.getPrecio() > 0
+                && i.getPrecioCantidad() > 0;
     }
 
     /**
