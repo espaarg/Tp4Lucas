@@ -5,22 +5,51 @@ package org.example.entidades;
  */
 public class Item {
 
-    private String nombre = "Zapatilla"; // Nombre del item.
-    private String descripcion = "De cuero"; // Descripción del item.
-    private int cantidad = 2; // Cantidad del item.
-    private float precio = 100; // Precio del item.
-    private float precioCantidad = 200; // Precio total calculado.
+    /** Nombre del item. */
+    private String nombre;
+
+    /** Descripción del item. */
+    private String descripcion;
+
+    /** Cantidad del item. */
+    private int cantidad;
+
+    /** Precio del item. */
+    private float precio;
+
+    /** Constante que define el límite superior de cantidad. */
+    private static final int MAX_CANTIDAD = 100;
+
+    /** Constante que define el precio mínimo. */
+    private static final float MIN_PRECIO = 200.0f;
 
     /**
-     * Constructor vacío para Item.
+     * Constructor para la clase Item.
+     *
+     * @param nombre Nombre del item.
+     * @param descripcion Descripción del item.
+     * @param cantidad Cantidad del item.
+     * @param precio Precio del item.
+     */
+    public Item(final String nombre, final String descripcion,
+                final int cantidad, final float precio) {
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        setCantidad(cantidad);
+        setPrecio(precio);
+    }
+
+    /**
+     * Constructor vacio para la clase Item.
      */
     public Item() {
+        
     }
 
     /**
      * Obtiene el nombre del item.
      *
-     * @return El nombre del item.
+     * @return Nombre del item.
      */
     public String getNombre() {
         return nombre;
@@ -29,7 +58,7 @@ public class Item {
     /**
      * Establece el nombre del item.
      *
-     * @param nombre El nombre a establecer.
+     * @param nombre Nombre del item.
      */
     public void setNombre(final String nombre) {
         this.nombre = nombre;
@@ -38,7 +67,7 @@ public class Item {
     /**
      * Obtiene la descripción del item.
      *
-     * @return La descripción del item.
+     * @return Descripción del item.
      */
     public String getDescripcion() {
         return descripcion;
@@ -47,7 +76,7 @@ public class Item {
     /**
      * Establece la descripción del item.
      *
-     * @param descripcion La descripción a establecer.
+     * @param descripcion Descripción del item.
      */
     public void setDescripcion(final String descripcion) {
         this.descripcion = descripcion;
@@ -56,7 +85,7 @@ public class Item {
     /**
      * Obtiene la cantidad del item.
      *
-     * @return La cantidad del item.
+     * @return Cantidad del item.
      */
     public int getCantidad() {
         return cantidad;
@@ -65,11 +94,12 @@ public class Item {
     /**
      * Establece la cantidad del item.
      *
-     * @param cantidad La cantidad a establecer.
+     * @param cantidad Cantidad del item.
+     * @throws IllegalArgumentException si la cantidad es negativa o superior a MAX_CANTIDAD.
      */
     public void setCantidad(final int cantidad) {
-        if (cantidad < 0) {
-            throw new IllegalArgumentException("La cantidad no puede ser negativa");
+        if (cantidad < 0 || cantidad > MAX_CANTIDAD) {
+            throw new IllegalArgumentException("La cantidad debe estar entre 0 y " + MAX_CANTIDAD);
         }
         this.cantidad = cantidad;
     }
@@ -77,7 +107,7 @@ public class Item {
     /**
      * Obtiene el precio del item.
      *
-     * @return El precio del item.
+     * @return Precio del item.
      */
     public float getPrecio() {
         return precio;
@@ -86,28 +116,23 @@ public class Item {
     /**
      * Establece el precio del item.
      *
-     * @param precio El precio a establecer.
+     * @param precio Precio del item.
+     * @throws IllegalArgumentException si el precio es menor a MIN_PRECIO.
      */
     public void setPrecio(final float precio) {
+        if (precio < MIN_PRECIO) {
+            throw new IllegalArgumentException("El precio debe ser mayor a " + MIN_PRECIO);
+        }
         this.precio = precio;
     }
 
     /**
-     * Obtiene el precio total calculado.
+     * Obtiene el precio por cantidad del item.
      *
-     * @return El precio total.
+     * @return Precio por cantidad.
      */
     public float getPrecioCantidad() {
-        return precioCantidad;
-    }
-
-    /**
-     * Establece el precio total basado en la cantidad y el precio unitario.
-     *
-     * @param precio El precio unitario.
-     */
-    public void setPrecioCantidad(final float precio) {
-        this.precioCantidad = cantidad * precio;
+        return precio * cantidad;
     }
 
     /**
