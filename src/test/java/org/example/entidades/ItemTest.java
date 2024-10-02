@@ -16,7 +16,7 @@ class ItemTest {
     @Test
     void disminuirUnoCantidad(){
         item.disminuirUnoCantidad();
-        assertEquals(item.getCantidad(),1);
+        assertEquals(item.getCantidad(), 1);
     }
     @Test
     void setNombre() {
@@ -45,7 +45,7 @@ class ItemTest {
     @Test
     void setPrecioCantidad() {
         item.setPrecioCantidad(100 );
-        assertEquals(item.getPrecioCantidad(),200);
+        assertEquals(item.getPrecioCantidad(),100);
     }
 
 }
