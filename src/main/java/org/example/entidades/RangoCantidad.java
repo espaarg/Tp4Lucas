@@ -1,45 +1,36 @@
 package org.example.entidades;
 
 /**
- * Clase que representa un rango de cantidad.
+ * Esta clase maneja el rango de cantidades.
  */
 public class RangoCantidad {
 
-    private int cant; // Variable que representa la cantidad.
+    /**
+     * Cantidad que se utiliza para verificar límites.
+     */
+    int cant;
+
+    private static final int MAX_CANTIDAD = 15; // Definido como constante
 
     /**
-     * Verifica si la cantidad no supera el valor máximo permitido.
-     *
-     * @return {@code true} si la cantidad es menor o igual a 15, {@code false} de lo contrario.
+     * Este método nos asegura que la cantidad no supere la máxima.
      */
     public boolean cantidadMaxima() {
-        return cant <= 15;
+        return cant <= MAX_CANTIDAD;
     }
 
     /**
-     * Verifica si la cantidad no es negativa.
-     *
-     * @return {@code true} si la cantidad es mayor o igual a 0, {@code false} de lo contrario.
+     * Este método nos asegura que la cantidad no sea negativa.
      */
     public boolean cantidadMinima() {
         return cant >= 0;
     }
 
-    /**
-     * Obtiene la cantidad actual.
-     *
-     * @return La cantidad.
-     */
     public int getCant() {
         return cant;
     }
 
-    /**
-     * Establece una nueva cantidad.
-     *
-     * @param cant La cantidad a establecer.
-     */
-    public void setCant(final int cant) {
-        this.cant = cant;
+    public void setCant(final int cantidad) {
+        this.cant = cantidad;
     }
 }
