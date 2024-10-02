@@ -24,22 +24,23 @@ public class Item {
     private static final float MIN_PRECIO = 10.0f;
 
     /** Precio total calculado. */
-    private float precioCantidad = 4;
+    private static final float PRECIO_CANTIDAD_INICIAL = 4; // Definición de la constante
+    private float precioCantidad = PRECIO_CANTIDAD_INICIAL;
 
     /**
      * Constructor para la clase Item.
      *
-     * @param nombre      Nombre del item.
-     * @param descripcion Descripción del item.
-     * @param cantidad    Cantidad del item.
-     * @param precio      Precio del item.
+     * @param newNombre      Nombre del item.
+     * @param newDescripcion Descripción del item.
+     * @param newCantidad    Cantidad del item.
+     * @param newPrecio      Precio del item.
      */
-    public Item(final String nombre, final String descripcion,
-                final int cantidad, final float precio) {
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-        setCantidad(cantidad);
-        setPrecio(precio);
+    public Item(final String newNombre, final String newDescripcion,
+                final int newCantidad, final float newPrecio) {
+        this.nombre = newNombre;
+        this.descripcion = newDescripcion;
+        setCantidad(newCantidad);
+        setPrecio(newPrecio);
     }
 
     /**
@@ -61,10 +62,10 @@ public class Item {
     /**
      * Establece el nombre del item.
      *
-     * @param nombre Nombre del item.
+     * @param newNombre Nombre del item.
      */
-    public void setNombre(final String nombre) {
-        this.nombre = nombre;
+    public void setNombre(final String newNombre) {
+        this.nombre = newNombre;
     }
 
     /**
@@ -79,10 +80,10 @@ public class Item {
     /**
      * Establece la descripción del item.
      *
-     * @param descripcion Descripción del item.
+     * @param newDescripcion Descripción del item.
      */
-    public void setDescripcion(final String descripcion) {
-        this.descripcion = descripcion;
+    public void setDescripcion(final String newDescripcion) {
+        this.descripcion = newDescripcion;
     }
 
     /**
@@ -97,16 +98,17 @@ public class Item {
     /**
      * Establece la cantidad del item.
      *
-     * @param cantidad Cantidad del item.
+     * @param newCantidad Cantidad del item.
      * @throws IllegalArgumentException si la cantidad es negativa o superior a
      * MAX_CANTIDAD.
      */
-    public void setCantidad(final int cantidad) {
-        if (cantidad < 0 || cantidad > MAX_CANTIDAD) {
-            throw new IllegalArgumentException("La cantidad debe estar entre 0 y "
+    public void setCantidad(final int newCantidad) {
+        if (newCantidad < 0 || newCantidad > MAX_CANTIDAD) {
+            throw new IllegalArgumentException("La cantidad debe estar "
+                    + "entre 0 y "
                     + MAX_CANTIDAD);
         }
-        this.cantidad = cantidad;
+        this.cantidad = newCantidad;
     }
 
     /**
@@ -121,15 +123,15 @@ public class Item {
     /**
      * Establece el precio del item.
      *
-     * @param precio Precio del item.
+     * @param newPrecio Precio del item.
      * @throws IllegalArgumentException si el precio es menor a MIN_PRECIO.
      */
-    public void setPrecio(final float precio) {
-        if (precio < MIN_PRECIO) {
+    public void setPrecio(final float newPrecio) {
+        if (newPrecio < MIN_PRECIO) {
             throw new IllegalArgumentException("El precio debe ser mayor a "
                     + MIN_PRECIO);
         }
-        this.precio = precio;
+        this.precio = newPrecio;
     }
 
     /**
@@ -155,16 +157,17 @@ public class Item {
         if (cantidad > 0) {
             cantidad--;
         } else {
-            throw new IllegalArgumentException("La cantidad no puede ser negativa.");
+            throw new IllegalArgumentException("La cantidad no puede ser "
+                                                + "negativa.");
         }
     }
 
     /**
      * Establece el precio total basado en la cantidad y el precio unitario.
      *
-     * @param precio El precio unitario.
+     * @param newPrecio El precio unitario.
      */
-    public void setPrecioCantidad(final float precio) {
-        this.precioCantidad = precio;
+    public void setPrecioCantidad(final float newPrecio) {
+        this.precioCantidad = newPrecio;
     }
 }
