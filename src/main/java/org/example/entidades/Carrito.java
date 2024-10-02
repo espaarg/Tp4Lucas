@@ -8,8 +8,8 @@ import java.util.List;
  */
 public class Carrito {
 
-    /** Lista de items en el carrito. */
     private final List<Item> items = new ArrayList<>();
+    // Lista de items en el carrito.
 
     /**
      * Constructor vacío para Carrito.
@@ -38,48 +38,49 @@ public class Carrito {
     /**
      * Establece una nueva lista de items.
      *
-     * @param nuevaItems Lista de items a establecer.
+     * @param items Lista de items a establecer.
      */
-    public void setItems(final List<Item> nuevaItems) {
+    public void setItems(final List<Item> items) {
         this.items.clear();
-        this.items.addAll(nuevaItems);
+        this.items.addAll(items);
     }
 
     /**
      * Añade un item al carrito.
      *
-     * @param item El item a añadir.
+     * @param i El item a añadir.
      */
-    public void aniadirItems(final Item item) {
-        if (esItemValido(item)) {
-            items.add(item);
+    public void aniadirItems(final Item i) {
+        if (esItemValido(i)) {
+            items.add(i);
             System.out.println("Se ha añadido un item al carrito");
         } else {
-            System.out.println("El item no es válido y no se ha añadido al carrito");
+            System.out.println("El item no es válido y no se ha " +
+                    "añadido al carrito");
         }
     }
 
     /**
      * Verifica si el item es válido para añadir al carrito.
      *
-     * @param item El item a verificar.
+     * @param i El item a verificar.
      * @return {@code true} si el item es válido, {@code false} de lo contrario.
      */
-    private boolean esItemValido(final Item item) {
-        return item.getNombre() != null &&
-                item.getDescripcion() != null &&
-                item.getCantidad() > 0 &&
-                item.getPrecio() > 0 &&
-                item.getPrecioCantidad() > 0;
+    private boolean esItemValido(final Item i) {
+        return i.getNombre() != null &&
+                i.getDescripcion() != null &&
+                i.getCantidad() > 0 &&
+                i.getPrecio() > 0 &&
+                i.getPrecioCantidad() > 0;
     }
 
     /**
      * Elimina un item del carrito.
      *
-     * @param item El item a eliminar.
+     * @param i El item a eliminar.
      */
-    public void eliminarItems(final Item item) {
-        items.remove(item);
+    public void eliminarItems(final Item i) {
+        items.remove(i);
         System.out.println("Se ha eliminado un item del carrito");
     }
 
