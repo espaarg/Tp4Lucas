@@ -46,15 +46,3 @@ jobs:
       # Paso 6: Verificar el código con Checkstyle
       - name: Check code format with Checkstyle
         run: mvn checkstyle:check
-      # Paso 7: Formatear el código
-      - name: Format code with Maven Formatter
-        run: mvn formatter:format
-      # Paso 8: Commit changes if any
-      #Este paso verifica si hubo cambios después del formateo y, si los hubo, los comitea automáticamente al repositorio.
-      - name: Commit changes if any
-        run: |
-          git config --global user.name 'github-actions'
-          git config --global user.email 'github-actions@github.com'
-          git add .
-          git commit -m 'Format code' || echo "No changes to commit"
-          git push
