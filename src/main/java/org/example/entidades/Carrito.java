@@ -4,55 +4,52 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Representa un carrito de compras que contiene una lista de items.
+ * Clase que representa un carrito de compras.
  */
 public class Carrito {
 
-    /**
-     * Lista de items en el carrito.
-     */
-    private List<Item> items = new ArrayList<>();
+    private final List<Item> items = new ArrayList<>(); // Lista de items en el carrito.
 
     /**
-     * Constructor vacío que inicializa el carrito sin items.
+     * Constructor vacío para Carrito.
      */
     public Carrito() {
-        // Constructor vacío
     }
 
     /**
-     * Constructor que inicializa el carrito con una lista de items.
+     * Constructor para Carrito con items iniciales.
      *
-     * @param items Lista de items iniciales para el carrito.
+     * @param items Lista de items a añadir al carrito.
      */
-    public Carrito(List<Item> items) {
-        this.items = items;
+    public Carrito(final List<Item> items) {
+        this.items.addAll(items);
     }
 
     /**
-     * Obtiene la lista de items del carrito.
+     * Obtiene la lista de items en el carrito.
      *
-     * @return Lista de items en el carrito.
+     * @return Lista de items.
      */
     public List<Item> getItems() {
         return items;
     }
 
     /**
-     * Establece una nueva lista de items en el carrito.
+     * Establece una nueva lista de items.
      *
      * @param items Lista de items a establecer.
      */
-    public void setItems(List<Item> items) {
-        this.items = items;
+    public void setItems(final List<Item> items) {
+        this.items.clear();
+        this.items.addAll(items);
     }
 
     /**
-     * Añade un item al carrito si es válido.
+     * Añade un item al carrito.
      *
      * @param i El item a añadir.
      */
-    public void aniadirItems(Item i) {
+    public void aniadirItems(final Item i) {
         if (esItemValido(i)) {
             items.add(i);
             System.out.println("Se ha añadido un item al carrito");
@@ -62,17 +59,17 @@ public class Carrito {
     }
 
     /**
-     * Verifica si un item es válido para ser añadido al carrito.
+     * Verifica si el item es válido para añadir al carrito.
      *
-     * @param i El item a validar.
-     * @return true si el item es válido, false en caso contrario.
+     * @param i El item a verificar.
+     * @return {@code true} si el item es válido, {@code false} de lo contrario.
      */
-    private boolean esItemValido(Item i) {
-        return i.getNombre() != null
-                && i.getDescripcion() != null
-                && i.getCantidad() > 0
-                && i.getPrecio() > 0
-                && i.getPrecioCantidad() > 0;
+    private boolean esItemValido(final Item i) {
+        return i.getNombre() != null &&
+                i.getDescripcion() != null &&
+                i.getCantidad() > 0 &&
+                i.getPrecio() > 0 &&
+                i.getPrecioCantidad() > 0;
     }
 
     /**
@@ -80,7 +77,7 @@ public class Carrito {
      *
      * @param i El item a eliminar.
      */
-    public void eliminarItems(Item i) {
+    public void eliminarItems(final Item i) {
         items.remove(i);
         System.out.println("Se ha eliminado un item del carrito");
     }
@@ -94,14 +91,13 @@ public class Carrito {
     }
 
     /**
-     * Calcula el total del carrito sumando el precio de cada item por su cantidad.
+     * Calcula el total del carrito.
      *
-     * @param c El carrito cuyas compras se quieren calcular.
-     * @return El total calculado del carrito.
+     * @return El total del carrito.
      */
-    public float calcularTotal(Carrito c) {
+    public float calcularTotal() {
         float total = 0;
-        for (Item item : c.getItems()) {
+        for (Item item : items) {
             total += item.getPrecio() * item.getCantidad();
         }
         System.out.println("El total del carrito es " + total);

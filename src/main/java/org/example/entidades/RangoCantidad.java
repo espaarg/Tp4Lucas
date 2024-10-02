@@ -1,11 +1,11 @@
 package org.example.entidades;
 
 /**
- * Clase que representa un rango de cantidad con límites mínimos y máximos.
+ * Clase que representa un rango de cantidad.
  */
 public class RangoCantidad {
 
-    private int cant;
+    private int cant; // Variable que representa la cantidad.
 
     /**
      * Verifica si la cantidad no supera el valor máximo permitido.
@@ -39,7 +39,7 @@ public class RangoCantidad {
      *
      * @param cant La cantidad a establecer.
      */
-    public void setCant(int cant) {
+    public void setCant(final int cant) {
         this.cant = cant;
     }
 }

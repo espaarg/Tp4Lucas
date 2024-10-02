@@ -1,31 +1,23 @@
 package org.example;
 
 /**
- * Main class to start the application.
+ * Clase principal de la aplicación.
  */
 public class Main {
 
-    /**
-     * Main method that serves as the entry point for the application.
-     *
-     * @param args command-line arguments.
-     */
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
         System.out.println("Hello world!");
     }
 
-    /**
-     * Variable to store the value of one.
-     */
     private int uno = 1;
 
     /**
-     * Example method that returns the provided integer.
+     * Un método que devuelve el valor de a.
      *
-     * @param a the integer to be returned.
-     * @return the same integer passed as a parameter.
+     * @param a El valor a devolver.
+     * @return El valor de a.
      */
-    public int processValue(int a) {
+    public int aaa(final int a) {
         return a;
     }
 }
