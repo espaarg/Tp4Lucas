@@ -24,7 +24,9 @@ public class Item {
     private static final float MIN_PRECIO = 10.0f;
 
     /** Precio total calculado. */
-    private static final float PRECIO_CANTIDAD_INICIAL = 4; // Definición de la constante
+    private static final float PRECIO_CANTIDAD_INICIAL = 4; // Definición
+
+    /** Precio total calculado de verdad. */
     private float precioCantidad = PRECIO_CANTIDAD_INICIAL;
 
     /**
