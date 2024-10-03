@@ -18,7 +18,7 @@ public class CarritoIT {
     }
 
     @Test
-    public void calcularTotas(){
+    public void calcularTotal(){
         Carrito carrito = new Carrito();
         Item item1 = new Item("Zapatillas","Nike", 2, 3000);
         Item item2 = new Item("Remera","Adidas", 2, 4000);
