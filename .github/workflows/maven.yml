@@ -55,7 +55,3 @@ jobs:
       - name: Check code format with Checkstyle
         run: mvn checkstyle:check
 
-      # Si la verificación falla
-      - name: Run Spotless apply (if needed)
-        if: failure()  # Solo se ejecuta si Spotless check falla
-        run: mvn spotless:apply
