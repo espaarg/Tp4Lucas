@@ -28,3 +28,6 @@ public class CarritoIT {
 
         assertEquals(14000, carrito.calcularTotal(),0.01);
     }
+
+
+}
