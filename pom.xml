@@ -58,6 +58,10 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
                 <version>3.5.0</version>
+                <configuration>
+                    <configLocation>checkstyle.xml</configLocation> <!-- Ruta a tu archivo de configuración -->
+                    <failsOnError>true</failsOnError>
+                </configuration>
                 <reportSets>
                     <reportSet>
                         <reports>
@@ -68,5 +72,6 @@
             </plugin>
         </plugins>
     </reporting>
+
 
 </project>
