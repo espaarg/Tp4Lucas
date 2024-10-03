@@ -9,7 +9,7 @@ name: CI de Java con Maven y pruebas
 
 on:
   push:
-    branches: [ "develop" ]
+    branches: ["develop"]
   pull_request:
     branches: [ "develop" ]
 jobs:
@@ -33,6 +33,12 @@ jobs:
           restore-keys: |
             - ${{ runner.os }}-maven-
 
+      - name: Download Google Java Format
+        run: wget https://github.com/google/google-java-format/releases/download/v1.15.0/google-java-format-1.15.0-all-deps.jar
+
+      - name: Run Google Java Format
+        run: java -jar google-java-format-1.15.0-all-deps.jar --replace $(find . -name "*.java")
+
       # Paso 3: Compilar el proyecto con Maven
       - name: Build with Maven
         run: mvn clean install --no-transfer-progress
@@ -48,5 +54,3 @@ jobs:
       # Paso 6: Verificar el código con Checkstyle
       - name: Check code format with Checkstyle
         run: mvn checkstyle:check
-
-
