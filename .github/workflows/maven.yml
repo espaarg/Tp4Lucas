@@ -9,7 +9,7 @@ name: CI de Java con Maven y pruebas
 
 on:
   pull_request:
-    branches: [ "develop" ]
+    branches: [ "fabri" ]
 jobs:
   compilar-y-probar:
     runs-on: ubuntu-latest
