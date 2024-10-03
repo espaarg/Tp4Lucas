@@ -8,6 +8,8 @@
 name: CI de Java con Maven y pruebas
 
 on:
+  push:
+    branches: ["develop"]
   pull_request:
     branches: [ "develop" ]
 jobs:
@@ -30,6 +32,12 @@ jobs:
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
           restore-keys: |
             - ${{ runner.os }}-maven-
+
+      - name: Install Google Java Format
+        run: sudo apt-get install google-java-format
+
+      - name: Run Google Java Format
+        run: google-java-format -i $(find . -name "*.java"
 
       # Paso 3: Compilar el proyecto con Maven
       - name: Build with Maven
